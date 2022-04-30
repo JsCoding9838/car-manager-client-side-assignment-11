@@ -33,7 +33,7 @@ body: JSON.stringify(userInventory)
 
   }
   return (
-    <div className="w-screen">
+    <div className="w-screen ">
       <div className="w-full grid md:grid-cols-4 grid-cols-1 lg:px-24">
         <div className=''>
           <div className="flex flex-col font-semibold ml-4 my-4 md:mt-8">
@@ -52,7 +52,7 @@ body: JSON.stringify(userInventory)
         </div>
         <div className="md:col-span-3 col-span-1 bg-[#F4F7FC]">
           <form onSubmit={ManageInventory}>
-          <div className="md:px-8 px-4 mt-6 w-full h-[100vh]">
+          <div className="md:px-8 px-4 mt-6 w-full h-[88vh]">
             <div className="grid md:grid-cols-2 rounded md:px-8 md:py-7 md:gap-10">
               <div className="flex flex-col">
                 <label className="font-bold">Event Title</label>

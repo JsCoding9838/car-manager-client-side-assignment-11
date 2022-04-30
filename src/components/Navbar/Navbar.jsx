@@ -21,7 +21,7 @@ const Navber = () => {
           </p>
           <div className= "flex items-center md:order-2">
             <div>
-            <Link to='/register' type="submit" className="text-white bg-blue-700 hover:bg-blue-800  focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</Link>
+            <Link to='/register' type="submit" className="text-white bg-sky-600 hover:bg-sky-800  focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</Link>
            
             </div>
          { currentuser ?  <button
@@ -139,7 +139,7 @@ const Navber = () => {
               <li>
                 <Link
                  to='/home'
-                  className={`block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white`}
+                  className={`block py-2 pr-4 pl-3 text-white bg-sky-500 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white`}
                   aria-current="page"
                 >
                   Home

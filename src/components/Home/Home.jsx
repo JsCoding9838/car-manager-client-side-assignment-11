@@ -3,6 +3,7 @@ import "./Home.css";
 import car from "../../assets/img/header-img.png";
 import Typed from "react-typed";
 import Inventory from "./Inventory";
+import AboutWarehouse from "../AboutWarehouse/AboutWarehouse";
 
 const Home = () => {
   return (
@@ -25,7 +26,7 @@ const Home = () => {
 
             <button
               type="submit"
-              className="text-white  bg-blue-700 hover:bg-blue-800  font-medium rounded-full text-sm px-5 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white  bg-sky-500 hover:bg-sky-700 duration-500  font-medium rounded-full text-sm px-5 py-3 text-center"
             >
               BROWSE INVENTORY
             </button>
@@ -48,6 +49,10 @@ const Home = () => {
             />
           </div>
         </div>
+      </div>
+
+      <div>
+        <AboutWarehouse></AboutWarehouse>
       </div>
 
       <section className="inventory-section">
