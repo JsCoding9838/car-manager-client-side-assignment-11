@@ -11,7 +11,7 @@ const useFirebase = () => {
     passwordError: "",
     repeatPasswordError: "",
   });
-
+// console.log(userInfo.password)
   //create a new user with email & password
   const createNewUser = (event) => {
     event.preventDefault();
@@ -24,7 +24,7 @@ const useFirebase = () => {
     const regex =
       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const validEmail = regex.test(email.toLowerCase());
-    console.log(validEmail);
+    // console.log(validEmail);
     if (validEmail) {
       setUserInfo({ ...userInfo, email: validEmail });
       setErrors({ ...errors, emailError: "" });
@@ -43,7 +43,7 @@ const useFirebase = () => {
     const validPassword = regex.test(password);
 
     if (validPassword) {
-      setUserInfo({ ...userInfo, password: validPassword });
+      setUserInfo({ ...userInfo, password: password });
       setErrors({ ...errors, passwordError: "" });
     } else {
       setErrors({ ...errors, passwordError: " Invalid email" });
@@ -52,13 +52,22 @@ const useFirebase = () => {
   };
 
   const getRepeatPassword = (event) => {
-      const  rePassword = event.target.value;
-      if(userInfo.password === rePassword) {
-          
-      }
+    const rePassword = event.target.value;
+
+    if(userInfo.password === rePassword){
+        setUserInfo({...userInfo, repeatPassword:rePassword})
+        setErrors({...errors,   repeatPasswordError:''})
+  
+
+    }else{
+        setUserInfo({...userInfo, repeatPassword:''})
+        setErrors({...errors,   repeatPasswordError:"password didn't match"})
+
+    }
 
   };
-
+console.log("first", userInfo.password, errors.passwordError)
+console.log("second", userInfo.repeatPassword, errors.repeatPasswordError)
   return {
     getEmail,
     getPassword,
