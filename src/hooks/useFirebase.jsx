@@ -29,7 +29,7 @@ const useFirebase = () => {
       setUserInfo({ ...userInfo, email: validEmail });
       setErrors({ ...errors, emailError: "" });
     } else {
-      setErrors({ ...errors, emailError: " Invalid email" });
+      setErrors({ ...errors, emailError: " invalid email" });
       setUserInfo({ ...userInfo, email: "" });
     }
   };
@@ -46,7 +46,7 @@ const useFirebase = () => {
       setUserInfo({ ...userInfo, password: password });
       setErrors({ ...errors, passwordError: "" });
     } else {
-      setErrors({ ...errors, passwordError: " Invalid email" });
+      setErrors({ ...errors, passwordError: " invalid email" });
       setUserInfo({ ...userInfo, password: "" });
     }
   };
@@ -74,6 +74,7 @@ console.log("second", userInfo.repeatPassword, errors.repeatPasswordError)
     getRepeatPassword,
 
     createNewUser,
+    errors
   };
 };
 
