@@ -9,13 +9,13 @@ import useApi from '../../hooks/useApi';
 
 
 const Inventory = () => {
-  const {inventorys} = useApi()
+  const {inventorys} = useApi();
     return (
         <div className="md:px-20 md:py-10 my-8">
             <h1 className="text-3xl my-4 md:mb-5 lg:mb-8 text-center uppercase font-semibold">Our Inventory</h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 sm:grid-cols-1 gap-6">
             {inventorys.slice(0,6).map(inventory => <div key={inventory.id}> 
-    <div className="max-w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <a href="/">
         <img className=" w-[90%] rounded-t-lg flex mx-auto pt-4"  src={inventory.img} alt="" />
     </a>

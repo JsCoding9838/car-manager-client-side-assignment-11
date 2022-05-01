@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const useApi = () => {
 
-    const [inventorys, setInventorys] = useState([])
+    const [inventorys, setInventorys] = useState([]);
 
     useEffect(()=>{
     
