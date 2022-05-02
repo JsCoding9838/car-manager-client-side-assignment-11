@@ -10,8 +10,8 @@ const Navber = () => {
   const [currentuser] = useAuthState(auth);
 
   return (
-    <>
-      <nav className="bg-gray-300 border-gray-200 px-2 sm:px-4 py-2.5 md:px-6 rounded dark:bg-gray-800">
+    <div className="">
+      <nav className="fixed top-0 left-0 right-0 z-[100] bg-gray-300 border-gray-200 px-2 sm:px-4 py-2.5 md:px-6 rounded dark:bg-gray-800">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <p href="https://flowbite.com" className="flex items-center">
             <img src="" className="mr-3 h-6 sm:h-9" alt="" />
@@ -189,7 +189,7 @@ const Navber = () => {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 
