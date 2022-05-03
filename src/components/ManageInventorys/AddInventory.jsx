@@ -33,7 +33,7 @@ body: JSON.stringify(userInventory)
 
   }
   return (
-    <div className="w-screen ">
+    <div className="w-screen mt-20 md:mt-24">
       <div className="w-full grid md:grid-cols-4 grid-cols-1 lg:px-24">
         <div className=''>
           <div className="flex flex-col font-semibold ml-4 my-4 md:mt-8">

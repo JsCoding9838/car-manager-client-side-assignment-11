@@ -18,14 +18,14 @@ const InventoryDetails = () => {
 
 
         <div className="p-2 sm:p-8 md:p-3 lg:p-3 mb-4 mt-20 md:mt-20 lg:mt-20">
-          <h3 className='text-center text-2xl sm:text-5xl lg:text-5xl mb-3 font-semibold md:mb-6'>Manage Section</h3>
+          <h3 className='text-center text-3xl sm:text-5xl lg:text-5xl mb-3 font-semibold md:mb-6'>Manage Section</h3>
 
 
           <div className='lg:p-1 grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8 md:gap-3 lg:gap-5'>
             
 
 
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -49,7 +49,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -73,7 +73,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -97,7 +97,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -121,7 +121,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -145,7 +145,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -169,7 +169,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -193,7 +193,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -217,7 +217,7 @@ const InventoryDetails = () => {
                             </Link>
                         </div>
           </div>
-          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-md  dark:bg-gray-800 dark:border-gray-700">
+          <div className="lg:hover:scale-105 md:hover:scale-105 max-w-full bg-white rounded-lg border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700">
                         <p >
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={cardImg} alt="" />
                         </p>
@@ -251,7 +251,7 @@ const InventoryDetails = () => {
 
 
 
-        <div className='px-5 pb-6'>
+        <div className='bg-gray-300 px-5 pb-6'>
           <div className="sticky top-24 flex flex-col  font-semibold  mt-8">
               <div className="flex items-center"> 
             <input className="border rounded px-3 py-1 mt-2 focus:outline-0" type="text" name="title" placeholder="add here"      required/>

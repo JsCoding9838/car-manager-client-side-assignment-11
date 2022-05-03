@@ -6,8 +6,8 @@ const Login = () => {
     return (
         <>
             
-<div className="flex justify-center mt-10 ">
-<form className="lg:w-[60%] xl:w-[30%] md:w-[70%] w-[90%] border-2 px-4 py-10 rounded">
+<div className="flex justify-center mt-24 md:mt-28 lg:mt-52">
+<form className="w-[90%] md:w-[450px] lg:w-[600px] border-2 px-4 py-10 rounded">
 <div className="mb-6">
 
 <div   className="shadow-sm   text-center bg-gray-50 border border-gray-300 text-gray-900  rounded-full   block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white  dark:shadow-sm-light" >

@@ -5,6 +5,7 @@ import Typed from "react-typed";
 import Inventory from "./Inventory";
 import AboutWarehouse from "../AboutWarehouse/AboutWarehouse";
 import Footer from "../Footer/Footer";
+import Pricing from "../Pricing/Pricing";
 
 const Home = () => {
   return (
@@ -58,6 +59,9 @@ const Home = () => {
 
       <section className="inventory-section">
         <Inventory></Inventory>
+      </section>
+      <section>
+        <Pricing></Pricing>
       </section>
       <section>
         <Footer></Footer>
