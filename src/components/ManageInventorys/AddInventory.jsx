@@ -6,30 +6,26 @@ import { Link } from "react-router-dom";
 const AddInventory = () => {
   const ManageInventory = (event) =>{
 
-event.preventDefault();
-const title =event.target.title.value;
-const description =event.target.description.value;
-const date =event.target.date.value;
-const banner =event.target.banner.value;
-const userInventory = {title, description, date, banner};
+    event.preventDefault();
+    const title =event.target.title.value;
+    const description =event.target.description.value;
+    const date =event.target.date.value;
+    const banner =event.target.banner.value;
+    const userInventory = {title, description, date, banner};
 
 
-fetch('http://localhost:4000/addevent',{
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-body: JSON.stringify(userInventory)
-})
-.then(res => res.json())
-.then(data => {
-  console.log(data)
-  event.target.reset();
-})
-
-
-
-
+    fetch('http://localhost:4000/addevent',{
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userInventory)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        event.target.reset();
+      })
 
   }
   return (

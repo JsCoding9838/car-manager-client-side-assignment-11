@@ -13,9 +13,9 @@ const Home = () => {
       <div className="header-section w-full mt-[65px] md:mt-[65px] lg:mt-[65px]">
         <div className="overflow-hidden grid-cols-1 grid md:grid-cols-2  items-center  relative h-48 text-white  lg:px-28 md:px-20 rounded-lg gap-2 sm:h-64 xl:h-80 2xl:h-96">
           <div className="py-5 pl-6 md:pl-0 space-y-8">
-            <p className="text-4xl font-semibold upercase font-[Lato]">
-              <p className="uppercase md:text-[32] lg:text-[56px] lg:mb-5">your dream</p>
-              <p className="text-[#27AE60] w-full text-[22px] md:text-[24px] lg:text-[30px]">
+            <div className="text-4xl font-semibold upercase font-[Lato]">
+              <div className="uppercase md:text-[32] lg:text-[56px] lg:mb-5">your dream</div>
+              <div className="text-[#27AE60] w-full text-[22px] md:text-[24px] lg:text-[30px]">
                 {" "}
                 <Typed
                   strings={["Here you can find anycar!"]}
@@ -23,8 +23,8 @@ const Home = () => {
                   backSpeed={50}
                   loop
                 />{" "}
-              </p>
-            </p>
+              </div>
+            </div>
 
             <button
               type="submit"
