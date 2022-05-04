@@ -1,5 +1,5 @@
 import React from 'react';
-import aboutimg from '../../assets/img/grey-silver-color-sport-car.jpg';
+import aboutimg from '../../assets/img/headerImg.jpg';
 import { FaCar } from "react-icons/fa";
 import { BsPersonFill } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
