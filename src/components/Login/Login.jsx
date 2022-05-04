@@ -1,24 +1,36 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useFirebase from '../../hooks/useFirebase';
 
 const Login = () => {
+  const {getEmail,getPassword,logInUser,signInGoogle} = useFirebase()
+  const [user] = useAuthState(auth);
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  if(user){
+    
+    navigate(from, { replace: true });
+  }
 
   return (
     <div className="flex justify-center mt-24 md:mt-28 lg:mt-52">
-      <form className="w-[90%] md:w-[450px] lg:w-[600px] border-2 px-4 py-10 rounded">
+      <form onSubmit={logInUser} className="w-[90%] md:w-[450px] lg:w-[600px] border-2 px-4 py-10 rounded">
         <div className="mb-6">
-          <div   className="shadow-sm   text-center bg-gray-50 border border-gray-300 text-gray-900  rounded-full   block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white  dark:shadow-sm-light" >
+          <div onClick={signInGoogle}   className="shadow-sm   text-center bg-gray-50 border border-gray-300 text-gray-900  rounded-full   block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white  dark:shadow-sm-light" >
             <span className="flex items-center text-sm md:text-lg font-semibold"> <FcGoogle size={30}/><p className="flex justify-center w-full">Continue with Google</p></span>
           </div>
         </div>
         <div className="mb-6">
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-          <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required=""/>
+          <input onChange={getEmail} type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required=""/>
         </div>
         <div className="mb-6">
           <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
-          <input type="password" id="password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required=""/>
+          <input onChange={getPassword} type="password" id="password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required=""/>
         </div>
 
         <div className="flex items-start mb-6">

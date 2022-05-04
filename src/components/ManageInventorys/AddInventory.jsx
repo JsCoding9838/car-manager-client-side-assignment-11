@@ -4,30 +4,36 @@ import "./AddInventory.css";
 import { Link } from "react-router-dom";
 
 const AddInventory = () => {
-  const ManageInventory = (event) =>{
+  const inputUser = (event) =>{
 
     event.preventDefault();
     const title =event.target.title.value;
     const description =event.target.description.value;
-    const date =event.target.date.value;
+    const price =event.target.price.value;
+    const email =event.target.email.value;
     const banner =event.target.banner.value;
-    const userInventory = {title, description, date, banner};
-
-
-    fetch('http://localhost:4000/addevent',{
+    const userInventory = {title, description, price, email, banner};
+    
+    
+    
+    fetch('http://localhost:5000/add-inventory',{
       method: 'POST',
       headers: {
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(userInventory)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        event.target.reset();
-      })
-
-  }
+    body: JSON.stringify(userInventory)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      event.target.reset();
+    })
+    
+    
+    
+    
+    
+      }
   return (
     <div className="w-screen mt-20 md:mt-24">
       <div className="w-full grid md:grid-cols-4 grid-cols-1 lg:px-24">
@@ -47,7 +53,7 @@ const AddInventory = () => {
           </div>
         </div>
         <div className="md:col-span-3 col-span-1 bg-[#F4F7FC]">
-          <form onSubmit={ManageInventory}>
+          <form onSubmit={inputUser}>
           <div className="md:px-8 px-4 mt-6 w-full h-[88vh]">
             <div className="grid md:grid-cols-2 rounded md:px-8 md:py-7 md:gap-10">
               <div className="flex flex-col">
@@ -68,11 +74,19 @@ const AddInventory = () => {
                 ></textarea>
               </div>
               <div className="flex flex-col">
+              <label>E-mail</label>
+                <input
+                  className="border mt-2 rounded font-semibold px-3 py-1 focus:outline-0"
+                  type="email"
+                  name="email" required
+                  id=""
+                  placeholder="email"
+                />
                 <label>Event Date</label>
                 <input
                   className="border mt-2 rounded font-semibold px-3 py-1 focus:outline-0"
-                  type="date"
-                  name="date" required
+                  type="text"
+                  name="price" required
                   id=""
                 />
                 <label className="pt-5">Banner</label>

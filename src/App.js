@@ -6,10 +6,12 @@ import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 import Login from "./components/Login/Login";
 import AddInventory from "./components/ManageInventorys/AddInventory";
 import ManageInventory from "./components/ManageInventorys/ManageInventory";
+import MyItems from "./components/MyItems/MyItems";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import Register from "./components/Register/Register";
 import Services from "./components/Services/Services";
+import RequireAuth from "./components/RequireAuth/RequireAuth.jsx";
 
 
 function App() {
@@ -23,9 +25,11 @@ function App() {
        <Route path='/login' element={<Login/>}></Route>
        <Route path='/register' element={<Register/>}></Route>
        <Route path='/inventory/:id' element={<InventoryDetails/>}></Route>
-       <Route path='/manage-inventory' element={<ManageInventory/>}></Route>
+       <Route path='/manage-inventory' element={<RequireAuth><ManageInventory/></RequireAuth>}></Route>
        <Route path='/add-inventory' element={<AddInventory/>}></Route>
-       <Route path='/services' element={<Services/>}></Route>
+       <Route path='/my-items' element={<RequireAuth>
+        <MyItems/>
+       </RequireAuth>}></Route>
        <Route path='/blogs' element={<Blogs/>}></Route>
        <Route path='*' element={<NotFound/>}></Route>
      </Routes>
