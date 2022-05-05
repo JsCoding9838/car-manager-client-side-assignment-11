@@ -35,7 +35,7 @@ const Register = () => {
                 </div>
 
                 <div>
-                    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
+                    <button type="submit" className="text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
                     <Link to='/login' className="lg:ml-5 ml-2 text-sm pt-5 lg:pt-0 text-gray-900 block lg:inline dark:text-gray-300">Already Member?<span className="text-blue-600 hover:underline dark:text-blue-500 font-medium"> Login</span></Link>
                 </div>
             </form>

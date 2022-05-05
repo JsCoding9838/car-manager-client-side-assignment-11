@@ -80,7 +80,7 @@ const AddInventory = () => {
                   type="email"
                   name="email" required
                   id=""
-                  placeholder="email"
+               
                 />
                 <label>Event Date</label>
                 <input

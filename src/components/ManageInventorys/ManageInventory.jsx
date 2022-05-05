@@ -23,7 +23,7 @@ const ManageInventory = () => {
               className="flex items-center space-x-2 mt-7"
             >
               <img className="w-5" src={plus} alt="" />
-              <p>Add Inventory</p>
+              <p>Add New Items</p>
             </Link>
           </div>
         </div>

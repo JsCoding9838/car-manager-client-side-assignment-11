@@ -9,13 +9,13 @@ const Inventory = () => {
             <h2 className="text-[#252020] text-3xl md:text-4xl lg:text-5xl font-bold my-4 md:mb-5 lg:mb-8 text-center">Our Inventory</h2>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center p-4 md:py-5 lg:py-7 gap-6 md:gap-8 lg:gap-12">
                 {inventorys.slice(0,6).map(inventory => <div key={inventory.id}> 
-                    <div className="md:hover:scale-105 lg:hover:scale-105 max-w-full bg-white rounded-2xl border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700 sm:mx-6 md:w-[330px] lg:w-[280px]">
+                    <div className="max-w-full bg-white rounded-2xl border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700 sm:mx-6 md:w-[330px] lg:w-[280px]">
                         <div>
                             <img className="w-[90%] rounded-t-lg flex mx-auto pt-4"  src={inventory.banner} alt="" />
                         </div>
                         <div className="p-5">
                             <div>
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{inventory.title.slice(0,20)}</h5>
+                                <h5 className="mb-2 text-[20px] font-bold  text-gray-900 dark:text-white">{inventory.title}</h5>
                             </div>
                             <div className=" font-normal text-gray-700 dark:text-gray-400">{inventory.description}</div>
                             <div className="flex items-center py-2">
