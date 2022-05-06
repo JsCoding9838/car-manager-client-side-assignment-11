@@ -12,12 +12,12 @@ const AboutWarehouse = () => {
                 <h2 className='text-[#252020] text-3xl md:text-4xl lg:text-5xl font-bold'>About Us</h2>
                 <p className='px-2 lg:px-60 md:px-40 md:py-5 text-1xl pt-3 leading-normal text-gray-700 mb-3'>While a basic warehouse management software only manages the stock location and stock level of the goods in a warehouse, Unicommerce's advanced warehouse management system software understands the dynamism required in a warehouse solution.</p>
             </div>
-           <div href="/" className="flex flex-col items-center md:gap-x-6 lg:gap-12 justify-evenly bg-white rounded-lg mx-auto shadow-xl md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+           <div href="/" className="flex flex-col items-center md:gap-x-6 lg:gap-12 justify-evenly bg-white rounded-lg mx-auto md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
 
         
 
                 <div className='md:h-[450px] md:w-[50%] flex items-center justify-center'>
-                    <img className="object-cover w-full rounded-t-lg h-full md:w-full md:rounded-none md:rounded-l-lg" src={aboutimg} alt="" />
+                    <img className="object-cover w-full rounded-t-lg h-full md:w-full md:rounded-none " src={aboutimg} alt="" />
                 </div>
 
 

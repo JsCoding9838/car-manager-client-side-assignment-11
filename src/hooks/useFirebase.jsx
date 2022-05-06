@@ -5,6 +5,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdatePassword,
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
@@ -12,6 +13,7 @@ import auth from "../firebase.init";
 
 const useFirebase = () => {
   let navigate = useNavigate();
+  const [updatePassword, updating, error] = useUpdatePassword(auth);
 
   const [user] = useAuthState(auth);
   const [createUserWithEmailAndPassword, newUser, newUserLoading] =
@@ -19,7 +21,7 @@ const useFirebase = () => {
 
   const [signInWithEmailAndPassword, loginUser, loginLoding, signInError] =
 useSignInWithEmailAndPassword(auth);
-  const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser,googleLoading] = useSignInWithGoogle(auth);
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -54,17 +56,22 @@ useSignInWithEmailAndPassword(auth);
  
  
   if (newUserLoading) {
-    <p>loadin...</p>;
+   return <p>loadin...</p>;
   }
-
+  if(loginLoding){
+    <p className="pt-20">Loading........</p>
+  }
+if(googleLoading){
+  return <p className="pt-20">Loading................</p>
+}
   //create a new user with email & password
   const createNewUser = (event) => {
     event.preventDefault();
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-    if (newUser) {
-      jwtToken();
+   
+    
       navigate("/home");
-    }
+    
   };
 
   const logInUser = (event) => {
@@ -125,8 +132,13 @@ useSignInWithEmailAndPassword(auth);
       setErrors({ ...errors, repeatPasswordError: "password didn't match" });
     }
   };
+  const resetPassword =async () => {
+    await updatePassword(userInfo.password);
+    alert('Updated password');
+  }
 
   return {
+    resetPassword,
     getEmail,
     getPassword,
     getRepeatPassword,

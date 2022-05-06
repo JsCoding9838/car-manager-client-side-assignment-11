@@ -8,6 +8,7 @@ import { Link, useParams } from "react-router-dom";
 
 
 const InventoryDetails = () => {
+  const init = 0;
   const [selected , setSelected] = useState({})
   const [quan , setQuan] = useState(0)
   const [isLoading , setIsLoading] = useState(false)
@@ -24,8 +25,6 @@ const InventoryDetails = () => {
      
       
     })
-
-
   },[id,isLoading])
   const updateQuan = (add, deleted) => {
     fetch(`http://localhost:5000/add-inventory/${id}?add=${add}&deleted=${deleted}`,{
@@ -49,14 +48,14 @@ const InventoryDetails = () => {
    
   }
   const addQuantity = ()=>{
-    updateQuan(quan,0)
-    setIsLoading(!isLoading)
+    updateQuan(quan,0);
+    setIsLoading(!isLoading);
   
   }
   
   
   const deleteQuantity = ()=>{
-    updateQuan(0,quan)
+    updateQuan(init, quan)
     setIsLoading(!isLoading)
   }
   
@@ -82,7 +81,7 @@ const InventoryDetails = () => {
             <div  className="flex items-center space-x-2 mt-7">
             <button onClick={addQuantity}
               type="submit"
-              className="text-white  bg-blue-700 hover:bg-blue-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white  bg-sky-600 hover:bg-sky-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 duration-500"
             >
             Add quantity
             </button>
@@ -90,7 +89,7 @@ const InventoryDetails = () => {
             <button
             onClick={deleteQuantity}
               type="submit"
-              className="text-white  bg-blue-700 hover:bg-blue-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white  bg-sky-600 hover:bg-sky-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 duration-500"
             >
              Delivered
             </button>
@@ -98,23 +97,28 @@ const InventoryDetails = () => {
             </div>
           </div>
         </div>
-        <div className="  col-span-3 bg-[#F4F7FC]">
+
+        <div className="">
         <div className=" px-8  mt-8 w-full h-[80vh]">
 
 
-        <div className="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <div className="flex flex-col items-center rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
           <img className="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={selected.banner} alt=""/>
           <div className="flex flex-col justify-between p-4 leading-normal">
               <div className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{selected.title}</div>
-              <div>quantity: {selected.quantity}</div>
-              <div className="mb-3 font-normal text-gray-700 dark:text-gray-400">{selected.description}</div>
+              <p className="font-semibold">Id: <span className="font-normal">{selected?._id}</span> </p>
+              <p className="font-semibold">Description: <span className="font-normal">{selected?.description}</span> </p>
+              <p className="font-semibold">Price: <span className="font-normal">{selected?.price}</span> </p>
+              <p className="font-semibold">Quantity: <span className="font-normal">{selected?.quantity}</span> </p>
+              
+              <p className="mb-3 font-semibold">Decription: <span className="font-normal">{selected?.description}</span></p>
           </div>
         </div>
 
 
             <Link to='/manage-inventory'
               type="submit"
-              className="bg-blue-700 py-2  px-8 absolute right-28 text-white mt-4 rounded hover:bg-blue-800 "
+              className="bg-sky-600 py-2  px-8 absolute right-28 text-white mt-4 rounded hover:bg-sky-800 duration-500"
             >
          Manage inventory
             </Link>

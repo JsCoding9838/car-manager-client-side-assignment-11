@@ -17,13 +17,13 @@ const Home = () => {
             <p className="text-4xl font-semibold upercase font-[Lato]">
               <div className="uppercase md:text-[32] lg:text-[56px] lg:mb-5">your dream</div>
               <div className="text-[#27AE60] w-full text-[22px] md:text-[24px] lg:text-[30px]">
-                {" "}
+                
                 <Typed
                   strings={["Here you can find anycar!"]}
                   typeSpeed={40}
                   backSpeed={50}
                   loop
-                />{" "}
+                />
               </div>
             </p>
 

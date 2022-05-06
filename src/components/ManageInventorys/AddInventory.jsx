@@ -8,11 +8,12 @@ const AddInventory = () => {
 
     event.preventDefault();
     const title =event.target.title.value;
+    const supliername =event.target.supliername.value;
     const description =event.target.description.value;
     const price =event.target.price.value;
     const email =event.target.email.value;
     const banner =event.target.banner.value;
-    const userInventory = {title, description, price, email, banner};
+    const userInventory = {title, supliername, description, price, email, banner};
     
     
     
@@ -35,7 +36,7 @@ const AddInventory = () => {
     
       }
   return (
-    <div className="w-screen mt-20 md:mt-24">
+    <div className="mt-20 md:mt-24">
       <div className="w-full grid md:grid-cols-4 grid-cols-1 lg:px-24">
         <div className=''>
           <div className="flex flex-col font-semibold ml-4 my-4 md:mt-8">
@@ -63,6 +64,12 @@ const AddInventory = () => {
                   type="text" name="title"
                   placeholder="Enter title" required
                 />
+                <label className="font-bold">Suplier Name</label>
+                <input
+                  className="border rounded px-3 py-1 mt-2 focus:outline-0"
+                  type="text" name="supliername"
+                  placeholder="Suplier Name" required
+                />
                 <label className="pt-5 font-bold">Description</label>
                 <textarea
                   className="border rounded mt-2 px-3 py-1 focus:outline-0"
@@ -82,7 +89,7 @@ const AddInventory = () => {
                   id=""
                
                 />
-                <label>Event Date</label>
+                <label>Price</label>
                 <input
                   className="border mt-2 rounded font-semibold px-3 py-1 focus:outline-0"
                   type="text"
