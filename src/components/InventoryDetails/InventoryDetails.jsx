@@ -8,11 +8,14 @@ import { Link, useParams } from "react-router-dom";
 
 
 const InventoryDetails = () => {
+  const { id } = useParams();
   const init = 0;
   const [selected , setSelected] = useState({})
-  const [quan , setQuan] = useState(0)
-  const [isLoading , setIsLoading] = useState(false)
-  const { id } = useParams();
+  const [quantity, setQuantity] = useState(false)
+ 
+  
+
+
   
  
   useEffect(() => {
@@ -21,65 +24,65 @@ const InventoryDetails = () => {
     .then(res => res.json())
     .then(data => {
       setSelected(data)
-     
-     
-      
     })
-  },[id,isLoading])
-  const updateQuan = (add, deleted) => {
+},[id,quantity])
+  
+const updateQuan = (add, deleted) => {
+  
+
     fetch(`http://localhost:5000/add-inventory/${id}?add=${add}&deleted=${deleted}`,{
       method: 'PUT',
      
     })
     .then(res => res.json())
     .then(data =>{
+      
       if(data.error){
 
-        return toast.error(data.error,{id:1})
+        toast.error(data.error,{id:1})
       }
+      setQuantity(!quantity)
     })
+    
+    
   }
-  const quantity =(event) =>{
-    const quan =  event.target.value;
-    if(quan){
-      setQuan(quan )
-    }
-   
-   
-  }
-  const addQuantity = ()=>{
-    updateQuan(quan,0);
-    setIsLoading(!isLoading);
   
-  }
+  const addQuantity = (event)=>{
+    event.preventDefault();
+    const addValue = event.target.quan.value
+    if(addValue){
+     console.log(addValue)
+ updateQuan(addValue,init)
+   }
+   
+   }
   
   
   const deleteQuantity = ()=>{
-    updateQuan(init, quan)
-    setIsLoading(!isLoading)
-  }
+    updateQuan(init, 1)
+   
+   }
   
-
   return (
    <>
    <div className="w-screen pt-16">
       <div className="w-full grid grid-cols-4 lg:px-24 ">
-        <div>
+        <form onSubmit={addQuantity}>
           <div className="flex flex-col font-semibold  mt-8">
             <div
              
               className="flex items-center "
             > 
-          <input onBlur={quantity}
+          <input 
                   className="border rounded px-3 py-1 mt-2 focus:outline-0"
-                  type="text" name="quantity"
-                  placeholder="add" required
+                  type="text" name="quan"
+                  placeholder="add" 
                 />
             
              
             </div>
             <div  className="flex items-center space-x-2 mt-7">
-            <button onClick={addQuantity}
+            <button 
               type="submit"
               className="text-white  bg-sky-600 hover:bg-sky-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 duration-500"
             >
@@ -88,7 +91,7 @@ const InventoryDetails = () => {
             
             <button
             onClick={deleteQuantity}
-              type="submit"
+            
               className="text-white  bg-sky-600 hover:bg-sky-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 duration-500"
             >
              Delivered
@@ -96,7 +99,7 @@ const InventoryDetails = () => {
            
             </div>
           </div>
-        </div>
+        </form>
 
         <div className="">
         <div className=" px-8  mt-8 w-full h-[80vh]">
