@@ -3,17 +3,22 @@ import toast, { Toaster } from "react-hot-toast";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdatePassword,
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
+import { GridLoader } from "react-spinners";
 
 
 const useFirebase = () => {
   let navigate = useNavigate();
-  const [updatePassword, updating, error] = useUpdatePassword(auth);
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
+    auth
+  );
+  const [token,setToken] = useState('')
 
   const [user] = useAuthState(auth);
   const [createUserWithEmailAndPassword, newUser, newUserLoading] =
@@ -46,24 +51,41 @@ useSignInWithEmailAndPassword(auth);
       })
        .then((res) => res.json())
      .then((data) => {
-          const token = data.token;
+          const accessToken = data.token;
          
-          localStorage.setItem("AccessToken", token);
+          localStorage.setItem("AccessToken", accessToken);
+        setToken(accessToken);
         });
     }
   };
   jwtToken();
+  if(loginUser){
+    toast.success('Login successfully',{id: 1})
+  }
+  if(newUser){
+    toast.success('Register successfully',{id:1})
+  }
+  if(googleUser){
+    toast.success('Login successfully',{id:1})
+  }
  
- 
-  if (newUserLoading) {
-   return <p>loadin...</p>;
+  if(newUserLoading){
+    return  <div className="flex justify-center pt-[35vh] ">  <GridLoader size={10}/></div>
   }
   if(loginLoding){
-    <p className="pt-20">Loading........</p>
+    return  <div className="flex justify-center pt-[35vh] ">  <GridLoader size={10}/></div>
   }
-if(googleLoading){
-  return <p className="pt-20">Loading................</p>
-}
+  if(googleLoading){
+    return  <div className="flex justify-center pt-[35vh] ">  <GridLoader size={10}/></div>
+  }
+  if (signInError) {
+    toast.error("We cannot find an account with that email address", {
+      id: 1,
+    });
+  }
+
+ 
+  
   //create a new user with email & password
   const createNewUser = (event) => {
     event.preventDefault();
@@ -77,14 +99,16 @@ if(googleLoading){
   const logInUser = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(userInfo.email, userInfo.password);
-    if (signInError) {
-      toast.error("We cannot find an account with that email address", {
-        id: 1,
-      });
+    if(token){
+      navigate('/home')
     }
+    
   };
   const signInGoogle = () => {
     signInWithGoogle();
+    if(token){
+      navigate('/home')
+    }
   };
 
   //get all input filed value
@@ -132,10 +156,26 @@ if(googleLoading){
       setErrors({ ...errors, repeatPasswordError: "password didn't match" });
     }
   };
-  const resetPassword =async () => {
-    await updatePassword(userInfo.password);
-    alert('Updated password');
-  }
+  
+  const resetPassword = async(event) =>{
+    event.preventDefault();
+   const email = (event.target.email.value)
+   console.log(email)
+   if(email){
+   
+     await sendPasswordResetEmail(email)
+     toast('sending email...',
+     {
+      style: {
+         borderRadius: '10px',
+       },
+     },
+     );
+   }else{
+     toast.error('please enter your email')
+   }
+   
+     }
 
   return {
     resetPassword,

@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import useApi from '../../hooks/useApi';
 
 const Inventory = () => {
-  const {inventorys} = useApi();
-//   console.log(inventorys);
+    const {inventorys} = useApi();
+    //   console.log(inventorys);
     return (
         <div className="md:px-2 md:py-10 lg:px-6 my-8">
+            <div>
             <h2 className="text-[#252020] text-3xl md:text-4xl lg:text-5xl font-bold my-4 md:mb-5 lg:mb-8 text-center">Our Inventory</h2>
+            </div>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center p-4 md:py-5 lg:py-7 gap-6 md:gap-8 lg:gap-12">
                 {inventorys.slice(0,6).map(inventory => <div key={inventory._id}> 
                     <div className="max-w-full bg-white rounded-2xl border border-gray-300 hover:border-sky-500 duration-500 shadow-2xl  dark:bg-gray-800 dark:border-gray-700 sm:mx-6 md:w-[330px] lg:w-[280px]">
@@ -36,6 +38,9 @@ const Inventory = () => {
                     </div>
                 </div>)}
            </div>
+
+
+          
         </div>
     );
 };

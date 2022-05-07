@@ -41,7 +41,7 @@ const Login = () => {
 
         <label htmlFor="terms" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me </label>
          </div>
-        <h1 onClick={resetPassword}>Forget Password</h1>
+        <Link to='/reset-password' >Forget Password</Link>
 
         </div>
         <button type="submit" className="text-white  bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login

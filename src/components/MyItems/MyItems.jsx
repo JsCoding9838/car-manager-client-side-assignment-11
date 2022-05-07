@@ -1,18 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { GridLoader } from "react-spinners";
 import auth from "../../firebase.init";
 import Items from "../Items/Items";
 
 const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
   const [myItems, setMyItems] = useState([]);
+  const [isReload,setIsReload] = useState(false);
+  
+  // console.log(user.emailVerified);
+  
  
   useEffect(() => {
     const getData = async () => {
-        if(loading){
-            return <p>Loading...</p>
-        }
+       
      if(user){
         const { data } = await axios.get(
             `http://localhost:5000/my-items?email=${user?.email}`,
@@ -27,22 +30,51 @@ const MyItems = () => {
     
     };
     getData();
-  }, [user,loading]);
-  if(loading){
-    return <p>Loading..</p>
-  }
+  }, [user,isReload]);
+  const deleteHandler = (id) => {
+    const agree = window.confirm("are you sure? delete this item");
+    if (agree) {
+      fetch(`http://localhost:5000/manage-inventory/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          try {
+            const deleted = data?.result?.deletedCount;
+            if(deleted){
+              setIsReload(!isReload)
+            }
+          } catch (err) {
+            console.log(err)
+          }
+         
+        });
+      }
+    };
 
+  if(loading){
+    return  <div className="flex justify-center pt-[35vh] ">  <GridLoader size={10}/>
+    </div>
+  }
+  if(error){
+    return <p>error</p>
+  }
   
   return (
     <>
       {
-        user?.emailVerified ? <div className="pt-20 grid grid-cols-3 gap-4">
-        {myItems.map(item  => <Items key={item._id} item={item}></Items>)}
+        user?.emailVerified ? <div className="pt-20 bg-pink-600 grid md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-4">
+
+        {myItems.map(item  => <Items key={item._id} deleteHandler={deleteHandler} item={item}></Items>)}
+
         </div>
+
        : <div className="pt-20">
-       <h1>Please verify your Email <a href="https://mail.google.com/" target="_blank">Verify Now!</a> </h1>
+         
+       <h1  >Please verify your Email <a href="https://mail.google.com/" target="_blank">Verify Now!</a> </h1>
         </div>
       }
+
     </>
   );
 };

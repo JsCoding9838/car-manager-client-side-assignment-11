@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import Register from "./components/Register/Register";
 import RequireAuth from "./components/RequireAuth/RequireAuth.jsx";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         </RequireAuth>}>
         </Route>
         <Route path='/blogs' element={<Blogs/>}></Route>
+        <Route path='/reset-password' element={<ResetPassword/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
      </Routes>
      

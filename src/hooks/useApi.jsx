@@ -26,14 +26,14 @@ const useApi = () => {
               const collection = inventorys.filter(
                 (inventory) => inventory.id !== id
               );
-              inventorys(collection);
+              setInventorys(collection);
+              setIsReload(!isReload);
             }
           } catch (err) {
             console.log(err);
           }
         });
     }
-    setIsReload(!isReload);
   };
 
   //searchHandler for manage all inventory

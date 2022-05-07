@@ -92,7 +92,7 @@ const AddInventory = () => {
                 <label>Price</label>
                 <input
                   className="border mt-2 rounded font-semibold px-3 py-1 focus:outline-0"
-                  type="text"
+                  type="number"
                   name="price" required
                   id=""
                 />
