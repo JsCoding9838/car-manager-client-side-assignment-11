@@ -14,17 +14,17 @@ const Navber = () => {
 
   return (
     <div className="">
-      <nav className="fixed top-0 left-0 right-0 z-[100] bg-gray-300 border-gray-200 px-2 sm:px-4 py-2.5 md:px-6 rounded dark:bg-gray-800">
+      <nav className="fixed top-0 left-0 right-0 z-[100] bg-gray-300 border-gray-200 px-[6%] sm:px-[8%] py-2.5 md:px-[7%] rounded dark:bg-gray-800">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <p className="flex items-center">
          
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              <img className="w-32" src={navlogo} alt="" />
+              <img className="w-28 md:w-32" src={navlogo} alt="" />
             </span>
           </p>
-          <div className= "flex items-center md:order-2">
+          <div className= "flex items-center space-x-3 md:order-2">
             <div>
-           {currentuser ? '' :  <Link to='/register' type="submit" className="text-white bg-sky-600 hover:bg-sky-800 duration-500  focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</Link>}
+           {currentuser ? '' :  <Link to='/register' type="submit" className="text-white bg-sky-600 hover:bg-sky-800 duration-500  focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</Link>}
            
             </div>
          { currentuser ?  <button
@@ -49,7 +49,7 @@ const Navber = () => {
             <div
               className={
                 user
-                  ? "block absolute top-12 right-0  z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                  ? "w-[100%] sm:w-[50%] md:w-[30%] bg-gray-300 block absolute top-10 right-0  z-50 my-4 text-base list-none  rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
                   : "hidden   z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 "
               }
               id="dropdown"
@@ -87,17 +87,17 @@ const Navber = () => {
                     Earnings
                   </p>
                 </li>
-                <li onClick={() => {
+                <li className="p-2 px-4" onClick={() => {
                   signOut(auth)
                   setUser(false)
                   navegate('/login')
                 }}>
-                  <p
+                  <button
                    
-                    className="block cursor-pointer py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    className="w-full rounded block cursor-pointer py-2 px-4 text-lg text-gray-700 bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Sign out
-                  </p>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -105,12 +105,12 @@ const Navber = () => {
               onClick={() => {setNav(!nav); setUser(false)}}
               data-collapse-toggle="mobile-menu-2"
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-1 text-gray-500 rounded md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="mobile-menu-2"
               aria-expanded={nav}
             >
               <svg
-                className="w-6 h-6"
+                className="w-7 h-7"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -147,43 +147,37 @@ const Navber = () => {
               <li>
                 <Link
                  to='/home'
-                  className={`block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  className={`block py-2 pr-4 pl-3 text-gray-700 border-t border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
                   
                 >
                   Home
                 </Link>
               </li>
-              <li>
-              {
-                currentuser ? <Link to='/manage-inventory'
+              { currentuser ? <> <li>
+                <Link to='/manage-inventory'
                   
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-               Manage Items
-              </Link> : ""
-              }
-                
-              </li>
-              <li>
-                {
-                currentuser ? <Link to='/add-item'
-    
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                Add Item
-                </Link> : ''
-                }
+                 Manage Item
+                </Link>
               </li>
               <li>
-                {
-                currentuser ? <Link to='/my-items'
-    
+                <Link to='/add-inventory'
+                 
                   className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                My Items
-                </Link> : ''
-                }
+                 Add Item
+                </Link>
               </li>
+              <li>
+                <Link to='/my-items'
+                 
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                 My Items
+                </Link>
+              </li></>
+              : ''}
               <li>
                 <Link to='/blogs'
               
@@ -192,14 +186,24 @@ const Navber = () => {
                   Blogs
                 </Link>
               </li>
-              <li>
+              {
+                currentuser ? '' : <> <li>
                 <Link to='/pricing'
     
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Pricing
                 </Link>
               </li>
+              <li>
+                <Link to='/contact-us'
+    
+                  className="block py-2 pr-4 pl-3 text-gray-700 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Contact Us
+                </Link>
+              </li></>
+              }
             </ul>
           </div>
         </div>

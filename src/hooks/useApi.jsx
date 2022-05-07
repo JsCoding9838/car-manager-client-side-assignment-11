@@ -13,7 +13,7 @@ const useApi = () => {
 
   //delete -handler --remove item in client side
   const deleteHandler = (id) => {
-    const agree = window.confirm("Une nouvelle fenêtre va s'ouvrir.");
+    const agree = window.confirm("Are you sure! for delete this item");
     if (agree) {
       fetch(`http://localhost:5000/manage-inventory/${id}`, {
         method: "DELETE",

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
-  useUpdatePassword,
+ 
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
@@ -89,10 +89,15 @@ useSignInWithEmailAndPassword(auth);
   //create a new user with email & password
   const createNewUser = (event) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-   
+    if(userInfo.password === userInfo.repeatPassword){
+     
+      createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     
       navigate("/home");
+    
+      toast.success('Register successfully',{id:1})
+    }
+   
     
   };
 
@@ -147,8 +152,8 @@ useSignInWithEmailAndPassword(auth);
 
   const getRepeatPassword = (event) => {
     const rePassword = event.target.value;
-
-    if (userInfo.password === rePassword) {
+    if ( rePassword === userInfo.password) {
+     
       setUserInfo({ ...userInfo, repeatPassword: rePassword });
       setErrors({ ...errors, repeatPasswordError: "" });
     } else {
@@ -164,18 +169,20 @@ useSignInWithEmailAndPassword(auth);
    if(email){
    
      await sendPasswordResetEmail(email)
-     toast('sending email...',
-     {
-      style: {
-         borderRadius: '10px',
-       },
-     },
-     );
-   }else{
-     toast.error('please enter your email')
-   }
+   if(sending){
+    toast('sending email...',
+    {
+     style: {
+        borderRadius: '10px',
+      },
+    },
+    );
+  }else{
+    toast.error('please enter your email')
+  }
+  }
    
-     }
+  }
 
   return {
     resetPassword,

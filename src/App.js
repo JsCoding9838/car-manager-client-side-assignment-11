@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Blogs from "./components/Blogs/Blogs";
 
@@ -51,7 +52,7 @@ function App() {
         <Route path='/reset-password' element={<ResetPassword/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
      </Routes>
-     
+     <Toaster />
     </>
   );
 }

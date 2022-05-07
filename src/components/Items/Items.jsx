@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Items = ({item,deleteHandler}) => {
+const Items = ({item, deleteHandler}) => {
     return (
         <div className="bg-green-500">
             <div class="max-w-sm bg-red-500 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">

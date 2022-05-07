@@ -2,6 +2,7 @@ import user from "../../assets/img/users-alt 1.png"
 import plus from "../../assets/img/plus 1.png";
 import "./AddInventory.css";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const AddInventory = () => {
   const inputUser = (event) =>{
@@ -22,19 +23,17 @@ const AddInventory = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-    body: JSON.stringify(userInventory)
-    })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
+      body: JSON.stringify(userInventory)
+      })
+      .then(res => res.json())
+      .then(data => {
+      if(data.result.insertedId){
+        toast.success('Item successfully added')
+        
+      }
       event.target.reset();
     })
-    
-    
-    
-    
-    
-      }
+  }
   return (
     <div className="mt-20 md:mt-24">
       <div className="w-full grid md:grid-cols-4 grid-cols-1 lg:px-24">
