@@ -18,21 +18,20 @@ const AddInventory = () => {
     
     
     
-    fetch('http://localhost:5000/add-inventory',{
-      method: 'POST',
+    fetch("https://polar-plateau-07967.herokuapp.com/add-inventory", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(userInventory)
-      })
-      .then(res => res.json())
-      .then(data => {
-      if(data.result.insertedId){
-        toast.success('Item successfully added')
-        
-      }
-      event.target.reset();
+      body: JSON.stringify(userInventory),
     })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result.insertedId) {
+          toast.success("Item successfully added");
+        }
+        event.target.reset();
+      });
   }
   return (
     <div className="mt-20 md:mt-24">

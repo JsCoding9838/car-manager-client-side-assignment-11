@@ -6,7 +6,7 @@ const useApi = () => {
   const [inventorys, setInventorys] = useState([]);
   //load all product from server
   useEffect(() => {
-    fetch("http://localhost:5000/add-inventory")
+    fetch("https://polar-plateau-07967.herokuapp.com/add-inventory")
       .then((res) => res.json())
       .then((data) => setInventorys(data));
   }, [isReload]);
@@ -15,9 +15,12 @@ const useApi = () => {
   const deleteHandler = (id) => {
     const agree = window.confirm("Are you sure! for delete this item");
     if (agree) {
-      fetch(`http://localhost:5000/manage-inventory/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://polar-plateau-07967.herokuapp.com/manage-inventory/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           try {
@@ -40,7 +43,9 @@ const useApi = () => {
   const searchHandler = (event) => {
     const searchValue = event.target.value;
     if (event.key === "Enter" && searchValue) {
-      fetch(`http://localhost:5000/search?title=${searchValue}`)
+      fetch(
+        `https://polar-plateau-07967.herokuapp.com/search?title=${searchValue}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setInventorys(data);

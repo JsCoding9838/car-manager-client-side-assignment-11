@@ -1,10 +1,6 @@
 # Car Manager
 
 
-## Client Side Repo Link: [Client Side](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-JsCoding9838)
-## Server Side Repo Link: [Server Side](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-JsCoding9838)
-
-
 
 ==============================================================
 # Car Manager [Live link](https://warehouse-with-node.web.app)
@@ -18,11 +14,12 @@
 
 ## fontend side used:
 - Using html, CSS, javaScript
-- react, react firebase
+- react, firebase
 
 
 
 ### framwork and library in fontend side-
+
 - Tailwind CSS
 - react-dom
 - react-hot-toast
@@ -30,6 +27,7 @@
 - react-router-dom
 - react-spinners
 - react-typed
+- axios
 - react firebase hooks
 
 
@@ -38,5 +36,4 @@
 - node.js
 - express.js
 - jwt
-- axios
 - mongodb

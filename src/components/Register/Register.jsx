@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
 
 const Register = () => {
-    const {getEmail,getPassword, getRepeatPassword ,createNewUser,errors} = useFirebase();
+    const {getEmail, getPassword, getRepeatPassword ,createNewUser, errors} = useFirebase();
     const {emailError, passwordError, repeatPasswordError} = errors;
 
     return (
-        <div className="flex justify-center mt-24 md:mt-28 lg:mt-52">
+        <div className="flex justify-center mt-20 md:mt-28 lg:mt-44">
             <form onSubmit={createNewUser} className="w-[90%] md:w-[450px] lg:w-[600px] border-2 px-4 py-10 rounded">
                 <div className="mb-4">
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
@@ -36,6 +36,7 @@ const Register = () => {
 
                 <div>
                     <button type="submit" className="text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
+
                     <Link to='/login' className="lg:ml-5 ml-2 text-sm pt-5 lg:pt-0 text-gray-900 block lg:inline dark:text-gray-300">Already Member?<span className="text-blue-600 hover:underline dark:text-blue-500 font-medium"> Login</span></Link>
                 </div>
             </form>

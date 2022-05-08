@@ -9,7 +9,6 @@ const Navber = () => {
   const [nav, setNav] = useState(false);
   const [user, setUser] = useState(false);
   const [currentuser] = useAuthState(auth);
-  // console.log(currentuser);
   let navegate = useNavigate();
 
   return (
@@ -22,7 +21,7 @@ const Navber = () => {
               <img className="w-28 md:w-32" src={navlogo} alt="" />
             </span>
           </p>
-          <div className= "flex items-center space-x-3 md:order-2">
+          <div className= "flex items-center space-x-2 md:order-2">
             <div>
            {currentuser ? '' :  <Link to='/register' type="submit" className="text-white bg-sky-600 hover:bg-sky-800 duration-500  focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</Link>}
            
@@ -40,7 +39,7 @@ const Navber = () => {
             >
               <span className="sr-only">Open user menu</span>
               <img
-                className="w-8 h-8 rounded-full"
+                className="w-9 h-9 p-1 bg-white rounded-full"
                 src={!currentuser?.photoURL ? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png' : currentuser.photoURL}
                 alt=""
               />
@@ -110,7 +109,7 @@ const Navber = () => {
               aria-expanded={nav}
             >
               <svg
-                className="w-7 h-7"
+                className="w-8 h-8"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +180,7 @@ const Navber = () => {
               <li>
                 <Link to='/blogs'
               
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Blogs
                 </Link>

@@ -9,16 +9,13 @@ const MyItems = () => {
   const [user, loading, error] = useAuthState(auth);
   const [myItems, setMyItems] = useState([]);
   const [isReload,setIsReload] = useState(false);
-  
-  // console.log(user.emailVerified);
-  
- 
+
   useEffect(() => {
     const getData = async () => {
        
      if(user){
         const { data } = await axios.get(
-            `http://localhost:5000/my-items?email=${user?.email}`,
+            `https://polar-plateau-07967.herokuapp.com/my-items?email=${user?.email}`,
             {
               headers: {
                 authorization: `Bearer ${localStorage.getItem("AccessToken")}`,
@@ -34,7 +31,7 @@ const MyItems = () => {
   const deleteHandler = (id) => {
     const agree = window.confirm("are you sure? delete this item");
     if (agree) {
-      fetch(`http://localhost:5000/manage-inventory/${id}`, {
+      fetch(`https://polar-plateau-07967.herokuapp.com/manage-inventory/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -45,7 +42,7 @@ const MyItems = () => {
               setIsReload(!isReload)
             }
           } catch (err) {
-            console.log(err)
+            // console.log(err)
           }
          
         });
@@ -63,15 +60,14 @@ const MyItems = () => {
   return (
     <>
       {
-        user?.emailVerified ? <div className="pt-20 bg-pink-600 grid md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-4">
+        user?.emailVerified ? <div className="pt-[65px] grid md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center gap-4">
 
         {myItems.map(item  => <Items key={item._id} deleteHandler={deleteHandler} item={item}></Items>)}
 
         </div>
 
        : <div className="pt-20">
-         
-       <h1  >Please verify your Email <a href="https://mail.google.com/" target="_blank">Verify Now!</a> </h1>
+            <h1  >Please verify your Email <a href="https://mail.google.com/" target="_blank">Verify Now!</a> </h1>
         </div>
       }
 
