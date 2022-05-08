@@ -46,11 +46,11 @@ const InventoryDetails = () => {
     event.preventDefault();
     const addValue = event.target.quan.value
     if(addValue){
-     console.log(addValue)
- updateQuan(addValue,init)
-   }
-   
-   }
+      console.log(addValue)
+      updateQuan(addValue,init)
+    }
+    event.target.reset()
+  }
   
   
   const deleteQuantity = ()=>{
@@ -84,13 +84,13 @@ const InventoryDetails = () => {
             Add quantity
             </button>
             
-            <button
+            <p
             onClick={deleteQuantity}
               
-              className="text-white  bg-sky-700 hover:bg-sky-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800 duration-500"
+              className="text-white cursor-pointer  bg-sky-700 hover:bg-sky-800  font-medium rounded-full text-sm px-4 py-2 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800 duration-500"
             >
              Delivered
-            </button>
+            </p>
            
             </div>
           </form>
