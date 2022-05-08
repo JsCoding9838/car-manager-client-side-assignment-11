@@ -5,7 +5,7 @@ import useApi from '../../hooks/useApi';
 const Inventory = () => {
     const {inventorys} = useApi();
     return (
-        <div className="md:px-2 md:py-10 lg:px-6 my-8">
+        <div className="md:px-2 lg:px-6 my-8">
             <div>
             <h2 className="text-[#252020] text-3xl md:text-4xl lg:text-5xl font-bold my-4 md:mb-5 lg:mb-8 text-center">Our Inventory</h2>
             </div>
